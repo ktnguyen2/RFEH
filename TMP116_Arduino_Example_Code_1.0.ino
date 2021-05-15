@@ -6,7 +6,10 @@
  *  Purpose: Interfaces Arduino UNO with the TMP116 temperature sensor to measure the 
  *  temperature and display it on an LCD Display. Device communicates information based 
  *  on I2C protocol.
- *  
+ * 
+ *
+ *  Some parts of this code have been edited for RFEH project 
+ *  This was originally written for Arduino, but can be used with Energia (IDE for MSP controllers)
  */
 
  #include <Wire.h>
@@ -72,7 +75,7 @@ const double delaytime = 5000; // 5 seconds;
   // Sets cursor at 9th column, 0th row
   lcd.setCursor(9,0); 
   lcd.print(temp); 
-  Serial.print(temp); // Kristi edit: print to serial monitor, this code works w/o LCD 
+  Serial.print(temp); // Print to serial monitor, this code works w/o LCD 
   Serial.print("\n");
 
   if (!alarm){ // If alarm is active low, trigger alert
@@ -127,8 +130,8 @@ double ReadTempSensor(void){
     // Combines data to make 16-bit binary number
     datac = ((data[0] << 8) | data[1]); 
 
-    // Convert to Celcius (7.8125 mC resolution) and return
-    return datac*0.0078125*9/5+32; // Kristi edit: convert to farenheit
+    // Convert to Farenheit (7.8125 mC resolution) and return
+    return datac*0.0078125*9/5+32; 
     
   }
 }
