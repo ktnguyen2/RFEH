@@ -8,8 +8,9 @@
  *  on I2C protocol.
  * 
  *
- *  Some parts of this code have been edited for RFEH project 
+ *  Some parts of this code have been edited for RFEH project
  *  This was originally written for Arduino, but can be used with Energia (IDE for MSP controllers)
+ *  Original link: https://training.ti.com/how-interface-tmp116-tmp117-temperature-sensors-arduino
  */
 
  #include <Wire.h>
